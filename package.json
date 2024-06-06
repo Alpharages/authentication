@@ -1,0 +1,48 @@
+{
+  "name": "authentication",
+  "version": "1.0.0",
+  "description": "Authentication module designed to work within a microservice architecture",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check-types": "tsc --noEmit --pretty",
+    "commit": "cz",
+    "format": "prettier --write 'src/**/*.{ts,json}'",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint --fix src/**/*.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typescript": "tsc"
+  },
+  "keywords": [
+    "alpharages"
+  ],
+  "author": "khakan.ali@alpharages.com",
+  "license": "ISC",
+  "dependencies": {
+    "got": "^14.4.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cz-commitlint": "^19.2.0",
+    "@commitlint/types": "^19.0.3",
+    "@eslint/js": "^9.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0",
+    "commitizen": "^4.3.0",
+    "eslint": "^9.3.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "globals": "^15.3.0",
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.11.0"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=20"
+  }
+}
