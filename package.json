@@ -1,6 +1,6 @@
 {
   "name": "@alpharages/authentication",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Authentication module designed to work within a microservice architecture",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",

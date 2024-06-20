@@ -20,5 +20,5 @@ export const token = (apiKey?: string): Promise<AxiosResponse | AlphaException> 
  * @return {Promise<AxiosResponse | AlphaException>} The fetched token from the server
  * */
 export const authentication = (token: string): Promise<AxiosResponse | AlphaException> => {
-  return request.postRequest('/token', null, { token: token });
+  return request.postRequest('/authentication', { token: token });
 };

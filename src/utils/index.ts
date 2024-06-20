@@ -1,3 +1,9 @@
-import { AxiosError } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
+import { Response } from '../types';
 
-export class AlphaException extends AxiosError {}
+export class AlphaException extends AxiosError {
+  constructor() {
+    super();
+  }
+  response?: AxiosResponse<Response, this>;
+}
