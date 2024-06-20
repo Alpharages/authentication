@@ -2,7 +2,9 @@
   "name": "authentication",
   "version": "1.0.0",
   "description": "Authentication module designed to work within a microservice architecture",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
