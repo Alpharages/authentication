@@ -1,1 +1,1 @@
-export const BASE_URL = process.env.BRIDGE_URL ?? `https://webhooksapi.salesparkapps.com`;
+export const BASE_URL = process.env.BRIDGE_URL ?? 'https://webhooksapi.salesparkapps.com';

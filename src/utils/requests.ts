@@ -1,24 +1,23 @@
+import axios, { AxiosResponse } from 'axios';
+import { RequestOptions } from '../types';
 import { BASE_URL } from './constants.js';
-import got, { Response } from 'got';
-import { RequestOptions } from '../types/index.js';
 import { AlphaException } from './index.js';
 
-const gotInstance = got.extend({ prefixUrl: BASE_URL });
+const axiosInstance = axios.create({ baseURL: BASE_URL });
 
 /**
  * To send the http get requests
  *
  * @param {String} path
  * @param {RequestOptions} options
- * @return {Promise<Response>} The response from the API
+ * @return {Promise<AxiosResponse> | AlphaException} The response from the API
  * */
-export const getRequest = (path: string, options?: RequestOptions): Promise<Response> => {
-  if (options?.token) {
-    gotInstance.defaults.options.headers.Authorization = `Bearer ${options?.token}`;
+export const getRequest = (path: string, options?: RequestOptions): Promise<AxiosResponse> => {
+  if (options?.token !== null) {
+    axiosInstance.defaults.headers.common.Authorization = `Bearer ${options?.token}`;
   }
-  return gotInstance.get(path).then((response) => response).catch((err) => {
-    console.error(err);
-    throw new AlphaException(`Error occurred while hitting this route "${err.config.url}": ${err.response.data.message}`);
+  return axiosInstance.get(path, options).catch((err: AlphaException) => {
+    throw err;
   });
 };
 
@@ -28,14 +27,17 @@ export const getRequest = (path: string, options?: RequestOptions): Promise<Resp
  * @param {String} path
  * @param {any} payload
  * @param {RequestOptions} options
- * @return {Promise<Response>} The response from the API
+ * @return {Promise<AxiosResponse>} The response from the API
  * */
-export const postRequest = (path: string, payload: any, options?: RequestOptions): Promise<Response> => {
-  if (options?.token) {
-    gotInstance.defaults.options.headers.Authorization = `Bearer ${options?.token}`;
+export const postRequest = (
+  path: string,
+  payload: unknown,
+  options?: RequestOptions,
+): Promise<AxiosResponse | AlphaException> => {
+  if (options?.token !== null) {
+    axiosInstance.defaults.headers.common.Authorization = `Bearer ${options?.token}`;
   }
-  return gotInstance.post(path, payload).catch((err) => {
-    console.error(err);
-    throw new AlphaException(`Error occurred while hitting this route "${err.config.url}": ${err.response.data.message}`);
+  return axiosInstance.post(path, payload).catch((err: AlphaException) => {
+    throw err;
   });
 };

@@ -17,7 +17,8 @@
     "declarationMap": true,
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution":"NodeNext",
+    "moduleResolution":"Bundler",
+    "module": "ES2022",
     "lib": [
       "decorators",
       "dom",
